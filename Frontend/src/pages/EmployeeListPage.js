@@ -4,13 +4,14 @@ import { Table, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import moment from 'moment';
+import { APIURL } from '../util';
 
 const EmployeeListPage = () => {
   const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
     async function getData() {
-      const res = await axios.get('http://localhost:5001/api/employees');
+      const res = await axios.get(APIURL+'/api/employees');
       setEmployees(res?.data?.data);
     }
     getData();
@@ -18,8 +19,8 @@ const EmployeeListPage = () => {
 
   const handleClick = async (emp) => {
     try {
-      await axios.delete(`http://localhost:5001/api/employees/${emp?._id}`);
-      const res = await axios.get('http://localhost:5001/api/employees');
+      await axios.delete(APIURL+`/api/employees/${emp?._id}`);
+      const res = await axios.get(APIURL+'/api/employees');
       setEmployees(res?.data?.data);
     } catch (e) {
       console.log('Error', e);

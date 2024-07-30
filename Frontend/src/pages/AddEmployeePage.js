@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './AddEmployeePage.css'; 
+import { APIURL } from '../util';
 
 const validationSchema = Yup.object({
   employeeName: Yup.string(),
@@ -29,7 +30,7 @@ const AddEmployeePage = () => {
     validationSchema,
     onSubmit: async (values) => {
       try {
-        await axios.post('http://localhost:5001/api/employees', values);
+        await axios.post(APIURL+'/api/employees', values);
         navigate('/');
       } catch (error) {
         console.error("There was an error adding the employee!", error);

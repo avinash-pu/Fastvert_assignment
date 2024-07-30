@@ -6,6 +6,7 @@ import { Modal, Button, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import './UpdateEmployeePage.css';
 import Select from 'react-select';
+import { APIURL } from '../util';
 
 // Validation schema for Formik
 const validationSchema = Yup.object({
@@ -32,7 +33,7 @@ const UpdateEmployeePage = () => {
   // Fetch employee data from the server
   const fetchEmployeeData = async () => {
     try {
-      const response = await axios.get('http://localhost:5001/api/employees');
+      const response = await axios.get(APIURL+'/api/employees');
       if (Array.isArray(response?.data?.data)) {
         setEmployees(response?.data?.data);
       } else {
@@ -58,7 +59,7 @@ const UpdateEmployeePage = () => {
     onSubmit: async (values) => {
       try {
         if (selectedEmployee) {
-          await axios.put(`http://localhost:5001/api/employees/${selectedEmployee._id}`, values);
+          await axios.put(APIURL+`/api/employees/${selectedEmployee._id}`, values);
           setUpdateSuccess(true);
           setTimeout(() => {
             setUpdateSuccess(false);

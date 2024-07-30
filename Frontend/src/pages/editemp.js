@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import { Modal, Button, Alert } from 'react-bootstrap';
 import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import './UpdateEmployeePage.css';
+import { APIURL } from '../util';
 
 // Validation schema for Formik
 const validationSchema = Yup.object({
@@ -37,7 +38,7 @@ console.log('sesd',selectedEmployee)
     onSubmit: async (values) => {
       try {
         if (selectedEmployee) {
-          await axios.put(`http://localhost:5001/api/employees/${selectedEmployee?._id}`, values);
+          await axios.put(APIURL+`/api/employees/${selectedEmployee?._id}`, values);
           setTimeout(() => {
             navigate('/'); // Navigate to the employee list page
           }, 2000); // Show success message for 2 seconds

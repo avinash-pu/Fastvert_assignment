@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Dashboard.css';
 import { Modal, Button, Form } from 'react-bootstrap';
 import axios from 'axios';
+import { APIURL } from './util';
 
 const Dashboard = () => {
   const [showModal, setShowModal] = useState(false);
@@ -17,10 +18,9 @@ const Dashboard = () => {
   }, []);
   const fetchH1 = async () => {
     try {
-      const response = await axios.get('http://localhost:5001/api/h1');
-console.log('fetchH1 res ',response.data.data[0]._id)
-      setH1Text(response.data.data[0].header); // Adjust based on your API response
-      setH1Id(response.data.data[0]._id); // Store the H1 ID for updates
+      const response = await axios.get(APIURL+'/api/h1');
+      setH1Text(response?.data?.data[0]?.header); // Adjust based on your API response
+      setH1Id(response?.data?.data[0]?._id); // Store the H1 ID for updates
     } catch (error) {
       console.error('Error fetching H1 text:', error);
     }
@@ -35,7 +35,7 @@ console.log('fetchH1 res ',response.data.data[0]._id)
   const handleCreate = async () => {
     if (newText.trim() !== '') {
       try {
-        await axios.post('http://localhost:5001/api/h1', { header: newText });
+        await axios.post(APIURL+'/api/h1', { header: newText });
         setH1Text(newText);
         handleClose();
       } catch (error) {
@@ -48,7 +48,7 @@ console.log('fetchH1 res ',response.data.data[0]._id)
     if (newText.trim() !== '' && h1Id) {
       try {
         const body ={ header: newText, id: h1Id }
-       const res= await axios.put('http://localhost:5001/api/h1', body);
+       const res= await axios.put(APIURL+'/api/h1', body);
         console.log('handle update',res)
         await fetchH1();
         handleClose();
