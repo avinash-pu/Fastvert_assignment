@@ -45,7 +45,7 @@ const updateH1 = async (req, res) => {
             return res.status(404).json({ message: 'H1 not found' });
         }
 
-        res.status(200).json(result);
+        res.status(200).json({ message: 'H1 updated successfully' });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
