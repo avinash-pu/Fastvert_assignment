@@ -7,6 +7,7 @@ const connectDB = require('./src/databse/db');
 // Custom CORS configuration
 const corsOptions = {
     origin: '*',  // Replace with your frontend URL or an array of URLs
+    Credential:true,
     methods: ["GET","HEAD","PUT","PATCH","POST","DELETE"],
     allowedHeaders: 'Content-Type, Authorization',
   };
