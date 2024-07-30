@@ -6,7 +6,7 @@ const cors = require('cors');
 const connectDB = require('./src/databse/db');
 // Custom CORS configuration
 const corsOptions = {
-    origin: 'https://fastvert-assignment.vercel.app',  // Replace with your frontend URL or an array of URLs
+    origin: '*',  // Replace with your frontend URL or an array of URLs
     methods: ["GET","HEAD","PUT","PATCH","POST","DELETE"],
     allowedHeaders: 'Content-Type, Authorization',
   };
