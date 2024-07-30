@@ -12,8 +12,11 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/dist/script-compiled.js"
+        "dest": "/dist/index.js"
       }
-    ]
+    ],
+    "env": {
+      "NODE_ENV": "production"
+    }
   }
   
