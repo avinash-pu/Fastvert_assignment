@@ -1,0 +1,30 @@
+
+.app-container {
+    display: flex;
+  }
+  
+  
+  .dashboard {
+    width: 80%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+
+  
+  .update-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
