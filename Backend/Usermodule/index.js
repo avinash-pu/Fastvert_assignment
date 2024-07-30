@@ -3,9 +3,9 @@ const cors = require('cors');
 
 
 
-const connectDB = require('./databse/db');
+const connectDB = require('./src/databse/db');
 //const userRoutes = require('./routes/userrout');
-const employeeRoutes = require('./routes/employeeRoutes');  //change
+const employeeRoutes = require('./src/routes/employeeRoutes');  //change
 require('dotenv').config();
 
 const app = express();
