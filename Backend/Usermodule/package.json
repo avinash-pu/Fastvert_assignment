@@ -17,6 +17,7 @@
     "mongoose-sequence": "^6.0.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.8",
     "@babel/node": "^7.25.0",
     "@babel/preset-env": "^7.25.2",
     "nodemon": "^3.1.4"
